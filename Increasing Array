@@ -1,0 +1,27 @@
+import java.util.*;
+import java.io.*;
+
+
+class Main{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		long num[] = new long[n];
+		for(int i = 0; i < n; i++){
+			num[i] = sc.nextLong();
+		}
+		long value = 0L;
+		long prev = num[0];
+		for(int i = 1; i < n; i++){
+			if(num[i] < prev){
+				value += (long)(prev-num[i]);
+			}
+			else{
+				prev = num[i];
+			}
+			// prev = 
+			
+		}
+		System.out.println(value);
+	}
+}
