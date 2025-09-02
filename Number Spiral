@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+ 
+class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            long y = Long.parseLong(st.nextToken());
+            long x = Long.parseLong(st.nextToken());
+            long n = Math.max(y, x);
+            long max = n * n;
+            long min = max - (2 * n - 2);
+ 
+            if (n % 2 == 1) {
+                if (x == n) {
+                    sb.append(max - (y - 1)).append("\n");
+                } else {
+                    sb.append(min + (x - 1)).append("\n");
+                }
+            } else {
+                if (y == n) {
+                    sb.append(max - (x - 1)).append("\n");
+                } else {
+                    sb.append(min + (y - 1)).append("\n");
+                }
+            }
+        }
+        System.out.print(sb);
+    }
+}
