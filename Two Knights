@@ -1,0 +1,18 @@
+import java.io.*;
+import java.util.*;
+
+class Main {
+    public static long findWays(int n){
+        long sqr = (long)(Math.pow(n, 2));
+        long allCombinations = 1L*sqr*(sqr-1)/2;
+        long attackCombinations = 4*(n-1)*(n-2);
+        return allCombinations-attackCombinations;
+    }
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for(int i = 1; i <= n; i++){
+            System.out.println(findWays(i));
+        }
+    }
+}
