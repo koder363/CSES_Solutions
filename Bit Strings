@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Main {
+    static final long MOD = 1000000007;
+
+    public static long powMod(long base, long exp) {
+        if (exp == 0)
+            return 1;
+        long half = powMod(base, exp / 2);
+        long result = (half * half) % MOD;
+        if (exp % 2 == 1)
+            result = (result * base) % MOD;
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+        System.out.println(powMod(2, n));
+    }
+}
