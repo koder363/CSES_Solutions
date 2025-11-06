@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        char ch[] = new char[str.length()];
+        int freq[] = new int[26];
+        for(int i = 0; i < str.length(); i++){
+            freq[str.charAt(i)-'A']++;
+        }
+        int i = 0;
+        int j = str.length()-1;
+        for(int idx = 0; idx < 26; idx++){
+            if(freq[idx]%2 == 0){
+                while(freq[idx] > 0){
+                    ch[i] = (char)(idx+'A');
+                    ch[j] = (char)(idx+'A');
+                    freq[idx] -= 2;
+                    i++;
+                    j--;
+                }
+            }
+        }
+        int count = 0;
+        for(int idx = 0; idx < freq.length; idx++){
+            if(freq[idx] > 0){
+                count++;
+                while(freq[idx]-- > 0){
+                    ch[i] = (char)(idx+'A');
+                    ch[j] = (char)(idx+'A');
+                    i++;
+                    j--;
+                }
+            }
+        }
+        if(count > 1){
+            System.out.println("NO SOLUTION");
+        }
+        else{
+            System.out.println(new String(ch));
+        }
+    }
+}
